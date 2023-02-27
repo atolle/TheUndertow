@@ -1,0 +1,92 @@
+body {
+    font-family: "EB Garamond", serif;
+    background-color: black;
+    color: #fff;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+    letter-spacing: 0.032em;
+    margin: 0px;
+    padding: 0px;
+}
+
+.nav {
+    font-family: "Pieces of Eight", sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    color: black;
+    background-color: white;
+    text-transform: uppercase;
+    font-size: 30px;
+
+    .nav-section {
+        display: flex;
+        margin: 20px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-logo {
+        object-fit: contain;
+        height: 100px;
+    }
+
+    .nav-buttons {
+        gap: 75px;
+    }
+
+    .nav-toggle {
+        font-size: 30px;
+    }
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+
+
+
+    // &.media {
+    //     background-color: cadetblue;
+    // }
+
+
+
+    // &.about {
+    //     background-color: rgb(211, 35, 28);
+    // }
+
+    &.book-us {
+        background-color: cadetblue;
+    }
+}
+
+.row-header {
+    font-family: "Pieces of Eight", sans-serif;
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+.upcoming-shows {
+    margin: 50px;
+    background-color: cadetblue;
+
+    .show-row {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 200px;
+
+        .show-card {
+            background-color: white;
+            color: black;
+            padding: 20px;
+            width: 200px;
+        }
+    }
+}
