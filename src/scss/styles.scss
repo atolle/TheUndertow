@@ -1,15 +1,48 @@
 @font-face {
     font-family: 'League Gothic';
     font-style: normal;
-    font-weight: 400;
-    letter-spacing: 6px;
+    font-weight: 300;
     src: local('League Gothic'), url('https://fonts.cdnfonts.com/s/12196/League_Gothic.woff') format('woff');
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     margin: 0px;
     padding: 0px;
-    font-family: "League Gothic";
+}
+
+.row {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.header-center {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    padding-left: 100px;
+}
+
+#root-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(82,86,89);
+}
+
+#root {
+    max-width: 1600px;
 }
 
 #header {
@@ -26,6 +59,11 @@ body {
         padding-right: 20px;
         padding-bottom: 50px;
         font-family: "Lato Regular", sans-serif;
+
+        a:link, a:visited, a:hover, a:active {
+            color: white;
+            text-decoration: none; 
+        }
     }
 
     #logo-container {
@@ -36,12 +74,12 @@ body {
         color: black;
 
         #logo-top {
-            font-size: 5.3vw;
+            font-size: 7.3vw;
             margin-bottom: -20px;
         }
 
-        #logo-bottom-wrapper {
-            font-size: 11.3vw;
+        #logo-bottom-container {
+            font-size: 13.3vw;
             display: flex;
         }
     }
@@ -50,6 +88,8 @@ body {
         display: flex;
         justify-content: center;
         font-size: 50px;
+        font-family: "League Gothic";
+        letter-spacing: 6px;
     }
 }
 
@@ -61,6 +101,9 @@ body {
     font-size: 50px;
     padding-top: 50px;
     padding-bottom: 50px;
+    font-family: "League Gothic";
+    letter-spacing: 6px;
+    background-color: white;
 
     #header-highlight {
         color: rgb(220, 145, 27);
@@ -100,6 +143,7 @@ body {
             gap: 15px;
             background-image: linear-gradient(white 70%, lightgray);
             min-width: 200px;
+            flex: 0 21%;
     
             .show-circle {
                 height: 25px;
@@ -123,9 +167,213 @@ body {
     }
 }
 
-#our-music {
-    display: flex;
-    justify-content: center;
+#media {
+    font-family: "League Gothic";
+    font-size: 50px;
+    letter-spacing: 6px;
     color: white;
-    background: linear-gradient(rgb(75, 75, 75) 50%, white 50%);
+    background: linear-gradient(rgb(75, 75, 75) 60%, white 40%);
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    .video-container {
+        position: relative;
+        padding-bottom: 45%;
+        padding-top: 25px;
+        height: 0;
+        display: flex;
+        justify-content: center;
+    
+        iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            max-width: 1300px;
+            max-height: 764px;
+        }
+    }
+}
+
+#about {
+    background: linear-gradient(to right, rgb(52, 66, 93) 15%, rgb(135, 38, 48));
+    color: white;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    position: relative;
+    overflow: hidden;
+
+    .header-left {
+        font-family: "League Gothic";
+        letter-spacing: 6px;
+        font-size: 50px;
+    }
+
+    #about-circle {
+        position: absolute;
+        top: -150;
+        left: -50;
+        height: 500px;
+        width: 500px;            
+        border-radius: 50%;
+        background-color: transparent;
+        border: 4px solid lightgray;
+        opacity: .2;
+    }
+
+    #about-square-top {
+        position: absolute;
+        top: -400;
+        rotate: 60deg;
+        height: 500px;
+        width: 500px;
+        background-color: transparent;
+        border: 4px solid #d3d3d3;
+        opacity: .2;
+        right: -200
+    }
+
+    #about-square-bottom {
+        position: absolute;
+        top: 150;
+        rotate: 60deg;
+        height: 500px;
+        width: 500px;
+        background-color: transparent;
+        border: 4px solid #d3d3d3;
+        opacity: .2;
+        right: -400;
+    }
+
+    #about-verbiage-container {
+        font-family: "Lato Regular", sans-serif;
+        font-size: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        padding-top: 100px;
+        padding-bottom: 100px;
+
+        #about-verbiage {
+            max-width: 45%;
+            color: white;
+        }
+    }
+
+    #about-header-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin-bottom: 100px;
+        color: white;
+        z-index: 1;
+        font-family: "League Gothic";
+        letter-spacing: 6px;
+        font-size: 50px;
+
+        #about-header-verbiage {
+            z-index: 1;
+        }
+
+        #about-header-square {
+            position:absolute;
+            height: 100px;
+            width: 100px;
+            background-color: rgb(55, 53, 63);
+        }
+    }
+
+    #about-band-container {
+        margin-top: 100px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        flex-wrap: wrap;
+
+        #about-band-image {
+            object-fit: contain;
+            max-width: 800px;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #about-band-verbiage {
+            font-family: Lato Regular,sans-serif;
+            font-size: 20px;
+            background-color: #fff;
+            color: black;
+            padding: 50 50;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+            border-bottom: rgb(162, 42, 57);
+            border-bottom-style: solid;
+            background: linear-gradient(white 70%, lightgray);
+
+            #about-band-header {
+                font-family: "League Gothic";
+                letter-spacing: 6px;
+                font-size: 50px;
+                color: rgb(162, 42, 57);
+            }
+        }
+    }
+}
+
+#book-us {
+    background-color: rgb(225, 225, 225);
+    display: flex;
+    justify-content: space-between;
+    font-family: "League Gothic";
+    letter-spacing: 6px;
+    
+    #book-us-header {
+        font-size: 100px;
+        background-image: linear-gradient(to right, rgb(153,135,120), rgb(56, 55, 54));
+        background-clip: text;
+        color: transparent;
+    }
+
+    #book-us-verbiage-container {
+        display: flex;
+        align-items: flex-end;
+        justify-content: right;
+
+        #book-us-verbiage {
+            color: rgb(125, 125, 125);
+            letter-spacing: 6px;
+            font-size: 50px;
+            text-align: right;
+        }
+    }
+}
+
+#contact-us {
+    background-color: rgb(205, 91, 28);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    #contact-us-header {
+        font-family: "League Gothic";
+        letter-spacing: 6px;
+        font-size: 50px;
+        color: white;
+    }
+
+    #contact-us-button {
+        margin-top: 50px;
+        text-align: center;
+        vertical-align: middle;
+        background-color: white;
+        color: rgb(75, 75, 75);
+        width: 200px;
+        font-family: Lato Regular,sans-serif;
+        font-size: 20px;
+        padding: 10px;
+        height: 30px;
+        line-height: 30px;
+    }
 }
