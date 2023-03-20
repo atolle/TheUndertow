@@ -1,92 +1,131 @@
-body {
-    font-family: "EB Garamond", serif;
-    background-color: black;
-    color: #fff;
-    font-size: 18px;
-    line-height: 28px;
+@font-face {
+    font-family: 'League Gothic';
+    font-style: normal;
     font-weight: 400;
-    letter-spacing: 0.032em;
+    letter-spacing: 6px;
+    src: local('League Gothic'), url('https://fonts.cdnfonts.com/s/12196/League_Gothic.woff') format('woff');
+}
+
+body {
     margin: 0px;
     padding: 0px;
+    font-family: "League Gothic";
 }
 
-.nav {
-    font-family: "Pieces of Eight", sans-serif;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100px;
-    color: black;
-    background-color: white;
-    text-transform: uppercase;
-    font-size: 30px;
+#header {
+    background-image: linear-gradient(to right, rgb(162, 42, 57), rgb(220, 145, 27));
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 100px;
 
-    .nav-section {
+    #nav {
         display: flex;
-        margin: 20px;
-        justify-content: space-between;
-        align-items: center;
+        justify-content: right;
+        gap: 20px;
+        font-size: 15px;
+        padding-right: 20px;
+        padding-bottom: 50px;
+        font-family: "Lato Regular", sans-serif;
     }
 
-    .nav-logo {
-        object-fit: contain;
-        height: 100px;
-    }
-
-    .nav-buttons {
-        gap: 75px;
-    }
-
-    .nav-toggle {
-        font-size: 30px;
-    }
-}
-
-.row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 400px;
-
-
-
-    // &.media {
-    //     background-color: cadetblue;
-    // }
-
-
-
-    // &.about {
-    //     background-color: rgb(211, 35, 28);
-    // }
-
-    &.book-us {
-        background-color: cadetblue;
-    }
-}
-
-.row-header {
-    font-family: "Pieces of Eight", sans-serif;
-    text-transform: uppercase;
-    font-size: 30px;
-}
-
-.upcoming-shows {
-    margin: 50px;
-    background-color: cadetblue;
-
-    .show-row {
-        width: 100%;
+    #logo-container {
         display: flex;
-        justify-content: space-around;
+        flex-direction: column;
         align-items: center;
-        height: 200px;
+        font-family: "Pieces of Eight", sans-serif;
+        color: black;
 
-        .show-card {
-            background-color: white;
-            color: black;
-            padding: 20px;
-            width: 200px;
+        #logo-top {
+            font-size: 5.3vw;
+            margin-bottom: -20px;
+        }
+
+        #logo-bottom-wrapper {
+            font-size: 11.3vw;
+            display: flex;
         }
     }
+
+    #logo-footer {
+        display: flex;
+        justify-content: center;
+        font-size: 50px;
+    }
+}
+
+#shows {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    font-size: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    #header-highlight {
+        color: rgb(220, 145, 27);
+        text-decoration: underline;
+    }
+
+    #sub-header {
+        margin-top:10px;
+        font-size: 25px;
+    }
+
+    #social-container {
+        display: flex;
+        gap: 20px;
+        padding-top: 30px;
+
+        .social-logo {
+            object-fit: contain;
+            width: 50px;
+        }
+    }
+
+    #show-card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .show-card {
+            margin: 20px;
+            box-shadow: 3px 3px 3px 3px lightgray;
+            min-height: 250px;
+            border-bottom: rgb(220, 145, 27);
+            border-bottom-style: solid;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background-image: linear-gradient(white 70%, lightgray);
+            min-width: 200px;
+    
+            .show-circle {
+                height: 25px;
+                width: 25px;            
+                border-radius: 50%;
+                background-color: white;
+                border: 3px solid rgb(220, 145, 27);
+            }
+    
+            .show-date {
+                font-size: 25px;
+                color: rgb(75, 75, 75);
+            }
+       
+            .show-location {
+                font-size: 25px;
+                color: rgb(75, 75, 75);
+                margin-top: auto;
+            }
+        }
+    }
+}
+
+#our-music {
+    display: flex;
+    justify-content: center;
+    color: white;
+    background: linear-gradient(rgb(75, 75, 75) 50%, white 50%);
 }
