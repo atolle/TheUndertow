@@ -37,38 +37,16 @@
                 <div id="social-container">
                     <img class="social-logo" src="images/facebook.png" />
                     <img class="social-logo" src="images/instagram.png" />
-                    <img class="social-logo" src="images/youtube.png" />
+                    <a href="https://www.youtube.com/channel/UCIlRt3BdlhM8Lgmt2CqWjYw" target="_blank">
+                        <img class="social-logo" src="images/youtube.png" />
+                    </a>
                 </div>
                 <div id="show-card-container">
                     <div class="show-card">
                         <div class="show-circle"></div>
-                        <div class="show-date">March 17, 2023</div>
-                        <div class="show-name">The Office</div>
-                        <div class="show-location">Foley, AL</div>
-                    </div>
-                    <div class="show-card">
-                        <div class="show-circle"></div>
-                        <div class="show-date">March 17, 2023</div>
-                        <div class="show-name">The Office</div>
-                        <div class="show-location">Foley, AL</div>
-                    </div>
-                    <div class="show-card">
-                        <div class="show-circle"></div>
-                        <div class="show-date">March 17, 2023</div>
-                        <div class="show-name">The Office</div>
-                        <div class="show-location">Foley, AL</div>
-                    </div>
-                    <div class="show-card">
-                        <div class="show-circle"></div>
-                        <div class="show-date">March 17, 2023</div>
-                        <div class="show-name">The Office</div>
-                        <div class="show-location">Foley, AL</div>
-                    </div>
-                    <div class="show-card">
-                        <div class="show-circle"></div>
-                        <div class="show-date">March 17, 2023</div>
-                        <div class="show-name">The Office</div>
-                        <div class="show-location">Foley, AL</div>
+                        <div class="show-date"></div>
+                        <div class="show-name">Coming soon!</div>
+                        <div class="show-location"></div>
                     </div>
                 </div>
             </div>
@@ -143,9 +121,47 @@
                     NOW BOOKING FOR 2023
                 </div>
                 <div id="contact-us-button">CONTACT US</div>
+                <form id="contact-us-form">
+                    <input form="contact-us-form" name="name" type="text" placeholder="Name" />
+                    <input form="contact-us-form" name="email" type="text" placeholder="Email" />
+                    <textarea form="contact-us-form" name="message" placeholder="Message"></textarea>
+                    <div id="send-button">SEND</div>
+                </form>
             </div>
         </div>
     </div>
 </body>
 
 </html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        document.addEventListener('click', function (event) {
+            if (event.target.matches('#contact-us-button')) {
+                const contactUsButton = document.getElementById("contact-us-button");
+                contactUsButton.style.display = "none";
+
+                const contactUsForm = document.getElementById("contact-us-form");
+                contactUsForm.style.display = "flex";
+            }
+
+            if (event.target.matches('#send-button')) {
+                const contactForm = document.querySelector("form");
+                const formData = new FormData(contactForm);
+                const payload = {};
+
+                formData.forEach((value, key) => (payload[key] = value));
+
+                console.log(JSON.stringify(payload));
+
+                fetch("/contact", {
+                    method: "POST",
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                }).then(res => {
+                    console.log("Request complete! response:", res);
+                });
+            }
+        }, false);
+    });
+</script>

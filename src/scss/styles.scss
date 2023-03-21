@@ -89,13 +89,12 @@ body {
 
         @media (max-width: 600px) {
             #logo-top {
-                font-size: 35px;
+                font-size: 26px;
                 margin-bottom: -20px;
             }
     
             #logo-bottom-container {
-                font-size: 75px;
-                display: flex;
+                font-size: 66px;
             }
         }
     }
@@ -430,4 +429,35 @@ body {
         height: 30px;
         line-height: 30px;
     }
+
+    #contact-us-form {
+        margin-top: 50px;
+        display: none;
+        flex-direction: column;
+        gap: 30px;
+        width: 500px;
+        transition: visibility 0s, opacity 0.5s linear;
+
+        #send-button {
+            text-align: center;
+            vertical-align: middle;
+            background-color: white;
+            color: rgb(75, 75, 75);
+            width: 200px;
+            font-family: Lato Regular,sans-serif;
+            font-size: 20px;
+            padding: 10px;
+            height: 30px;
+            line-height: 30px;
+        }
+    }
 }
+
+input[type=text], textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-family: Lato Regular,sans-serif;
+    font-size: 20px;
+  }
