@@ -24,13 +24,7 @@ body {
     flex-direction: column;
     align-content: center;
     align-items: center;
-}
-
-.header-left {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    padding-left: 100px;
+    text-align: center;
 }
 
 #root-container {
@@ -66,6 +60,16 @@ body {
         }
     }
 
+    @media (max-width: 600px) {
+        #nav {
+            display: flex;
+            justify-content: space-around;
+            font-size: 15px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+    }
+
     #logo-container {
         display: flex;
         flex-direction: column;
@@ -81,6 +85,18 @@ body {
         #logo-bottom-container {
             font-size: 13.3vw;
             display: flex;
+        }
+
+        @media (max-width: 600px) {
+            #logo-top {
+                font-size: 35px;
+                margin-bottom: -20px;
+            }
+    
+            #logo-bottom-container {
+                font-size: 75px;
+                display: flex;
+            }
         }
     }
 
@@ -244,23 +260,60 @@ body {
         right: -400;
     }
 
-    #about-verbiage-container {
-        font-family: "Lato Regular", sans-serif;
-        font-size: 20px;
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        padding-top: 100px;
-        padding-bottom: 100px;
-
-        #about-verbiage {
-            max-width: 45%;
-            color: white;
+    @media (max-width: 600px) {
+        #about-circle { 
+            display: none;
         }
     }
 
     #about-header-container {
+        display: flex;
+        justify-content: flex-start;
+        padding-left: 50px;
+        padding-right: 50px;
+
+        #about-header {
+            font-family: "League Gothic";
+            letter-spacing: 6px;
+            font-size: 50px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        #about-header-container {
+            display: flex;
+            justify-content: center;
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+    }
+
+    #about-verbiage-container {
+        font-family: "Lato Regular", sans-serif;
+        font-size: 20px;
+        display: flex;
+        justify-content: flex-end;
+        padding-left: 100px;
+        padding-right: 100px;
+        padding-top: 50px;
+        padding-bottom: 100px;
+
+        #about-verbiage {
+            max-width: 700px;
+            color: white;
+        }
+    }
+
+    @media (max-width: 600px) {
+        #about-verbiage-container {
+            display: flex;
+            justify-content: center;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
+
+    #about-subheader-container {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -272,11 +325,11 @@ body {
         letter-spacing: 6px;
         font-size: 50px;
 
-        #about-header-verbiage {
+        #about-subheader-verbiage {
             z-index: 1;
         }
 
-        #about-header-square {
+        #about-subheader-square {
             position:absolute;
             height: 100px;
             width: 100px;
@@ -295,7 +348,8 @@ body {
 
         #about-band-image {
             object-fit: contain;
-            max-width: 800px;
+            max-width: 95%;
+            width: 95%;
             box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
         }
 
@@ -304,7 +358,7 @@ body {
             font-size: 20px;
             background-color: #fff;
             color: black;
-            padding: 50 50;
+            padding: 25 25;
             box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
             border-bottom: rgb(162, 42, 57);
             border-bottom-style: solid;
@@ -330,8 +384,8 @@ body {
     #book-us-header {
         font-size: 100px;
         background-image: linear-gradient(to right, rgb(153,135,120), rgb(56, 55, 54));
-        background-clip: text;
-        color: transparent;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
     #book-us-verbiage-container {
