@@ -436,7 +436,6 @@ body {
         flex-direction: column;
         gap: 30px;
         width: 500px;
-        transition: visibility 0s, opacity 0.5s linear;
 
         #send-button {
             text-align: center;
@@ -449,6 +448,12 @@ body {
             padding: 10px;
             height: 30px;
             line-height: 30px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        #contact-us-form {
+            width: 90%;
         }
     }
 }
