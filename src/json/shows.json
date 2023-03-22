@@ -1,0 +1,20 @@
+[
+    {
+        "date": "March 17, 2023",
+        "venue": "The Office",
+        "location": "Foley, AL",
+        "time": "9 PM - 1 AM"
+    },
+    {
+        "date": "March 18, 2023",
+        "venue": "Doc Holliday's",
+        "location": "Foley, AL",
+        "time": "9 PM - 2 AM"
+    },
+    {
+        "date": "March 19, 2023",
+        "venue": "The Wharf",
+        "location": "Orange Beach, AL",
+        "time": "9 PM - 2 AM"
+    }
+]
