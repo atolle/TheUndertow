@@ -42,9 +42,9 @@ app.post('/contact', jsonParse, (req, res) => {
 
 	transporter.sendMail(mailOptions, function (error, info) {
 		if (error) {
-			console.log(error);
+			res.status(500).send(`An error occurred while sending the email: ${info.response}`);
 		} else {
-			console.log('Email sent: ' + info.response);
+			res.status(200).send("Email sent");
 		}
 	});
 });

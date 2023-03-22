@@ -42,12 +42,6 @@
                     </a>
                 </div>
                 <div id="show-card-container">
-                    <div class="show-card">
-                        <div class="show-circle"></div>
-                        <div class="show-date"></div>
-                        <div class="show-name">Coming soon!</div>
-                        <div class="show-location"></div>
-                    </div>
                 </div>
             </div>
             <div class="row" id="media">
@@ -120,12 +114,15 @@
                 <div class="header-center" id="contact-us-header">
                     NOW BOOKING FOR 2023
                 </div>
-                <div id="contact-us-button">CONTACT US</div>
+                <div id="contact-us-success">
+                    Thanks for reach out! We'll get back to you ASAP.
+                </div>
                 <form id="contact-us-form">
-                    <input form="contact-us-form" name="name" type="text" placeholder="Name" />
-                    <input form="contact-us-form" name="email" type="text" placeholder="Email" />
-                    <textarea form="contact-us-form" name="message" placeholder="Message"></textarea>
-                    <div id="send-button">SEND</div>
+                    <div id="contact-us-error"></div>
+                    <input form="contact-us-form" id="name" name="name" type="text" placeholder="Name" />
+                    <input form="contact-us-form" id="email" name="email" type="text" placeholder="Email" />
+                    <textarea form="contact-us-form" id="message" name="message" placeholder="Message"></textarea>
+                    <button class="button" id="send-button">SEND</button>
                 </form>
             </div>
         </div>
@@ -136,32 +133,131 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        document.addEventListener('click', function (event) {
-            if (event.target.matches('#contact-us-button')) {
-                const contactUsButton = document.getElementById("contact-us-button");
-                contactUsButton.style.display = "none";
+        const contactForm = document.getElementById("contact-us-form");
+        const conactUsSuccess = document.getElementById("contact-us-success");
+        const contactUsError = document.getElementById("contact-us-error");
+        const sendButton = document.getElementById("send-button");
+        const nameField = document.getElementById("name");
+        const emailField = document.getElementById("email");
+        const messageField = document.getElementById("message");
+        const showCardContainer = document.getElementById("show-card-container");
 
-                const contactUsForm = document.getElementById("contact-us-form");
-                contactUsForm.style.display = "flex";
+        const fetchAndDrawShows = async () => {
+            const response = await fetch("/json/shows.json", {
+                method: "GET",
+                headers: { 'Content-Type': 'application/json' }
+            });
+
+            let showsHtml = `
+                <div class="show-card">
+                    <div class="show-circle"></div>
+                    <div class="show-date"></div>
+                    <div class="show-venue">Coming soon!</div>
+                    <div class="show-location"></div>
+                    <div class="show-time"></div>
+                </div>
+            `
+
+            if (response.ok) {
+                const shows = await response.json();
+
+                if (shows) {
+                    showsHtml = "";
+
+                    for (const show of shows) {
+                        showsHtml += `
+                            <div class="show-card">
+                                <div class="show-circle"></div>
+                                <div class="show-date">${show.date}</div>
+                                <div class="show-venue">${show.venue}</div>
+                                <div class="show-location">${show.location}</div>
+                                <div class="show-time">${show.time}</div>
+                            </div>
+                        `
+                    }
+                }
             }
 
-            if (event.target.matches('#send-button')) {
-                const contactForm = document.querySelector("form");
+            showCardContainer.innerHTML = showsHtml;
+        }
+
+        const formIsValid = () => {
+            let formIsValid = true;
+
+            if (!nameField.value) {
+                formIsValid = false;
+                nameField.classList.add("has-error");
+            }
+
+            if (!emailField.value) {
+                formIsValid = false;
+                emailField.classList.add("has-error");
+            }
+
+            if (!messageField.value) {
+                formIsValid = false;
+                messageField.classList.add("has-error");
+            }
+
+            return formIsValid;
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.target.matches("#name")) {
+                contactUsError.style.display = "none";
+                nameField.classList.remove("has-error");
+            }
+
+            if (event.target.matches("#email")) {
+                contactUsError.style.display = "none";
+                emailField.classList.remove("has-error");
+            }
+
+            if (event.target.matches("#message")) {
+                contactUsError.style.display = "none";
+                messageField.classList.remove("has-error");
+            }
+        });
+
+        document.addEventListener('click', (event) => {
+            if (event.target === sendButton) {
+                event.preventDefault();
+
+                if (!formIsValid()) {
+                    contactUsError.innerHTML = "Please fill out all fields.";
+                    contactUsError.style.display = "block";
+                    return;
+                }
+
                 const formData = new FormData(contactForm);
                 const payload = {};
 
                 formData.forEach((value, key) => (payload[key] = value));
 
-                console.log(JSON.stringify(payload));
+                contactUsError.style.display = "none";
+                sendButton.disabled = true;
+                sendButton.innerHTML = "SENDING...";
 
                 fetch("/contact", {
                     method: "POST",
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
-                }).then(res => {
-                    console.log("Request complete! response:", res);
+                }).then((response) => {
+                    if (response.ok) {
+                        contactForm.style.display = "none";
+                        conactUsSuccess.style.display = "block";
+                        return;
+                    }
+
+                    contactUsError.innerHTML = "Unable to send email. Please try again.";
+                    contactUsError.style.display = "block";
+                    sendButton.disabled = false;
+                    sendButton.innerHTML = "SEND";
                 });
             }
         }, false);
+
+        contactForm.reset();
+        fetchAndDrawShows();
     });
 </script>

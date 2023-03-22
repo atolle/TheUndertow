@@ -27,6 +27,25 @@ body {
     text-align: center;
 }
 
+.button:hover {
+    cursor: pointer;
+}
+
+.button:disabled {
+    cursor: not-allowed;
+}
+
+.has-error {
+    border: 3px solid rgb(162, 42, 57);
+    background-color: rgb(213, 94, 108);
+
+}
+
+.has-error::placeholder {
+    color: white;
+    opacity: 1;
+}
+
 #root-container {
     display: flex;
     flex-direction: column;
@@ -171,12 +190,17 @@ body {
             .show-date {
                 font-size: 25px;
                 color: rgb(75, 75, 75);
-            }
+            }            
        
             .show-location {
                 font-size: 25px;
                 color: rgb(75, 75, 75);
                 margin-top: auto;
+            }
+
+            .show-time {
+                font-size: 25px;
+                color: rgb(75, 75, 75);
             }
         }
     }
@@ -408,6 +432,7 @@ body {
     align-items: center;
     padding-top: 50px;
     padding-bottom: 50px;
+    min-height: 300px;
 
     #contact-us-header {
         font-family: "League Gothic";
@@ -416,26 +441,22 @@ body {
         color: white;
     }
 
-    #contact-us-button {
-        margin-top: 50px;
-        text-align: center;
-        vertical-align: middle;
-        background-color: white;
-        color: rgb(75, 75, 75);
-        width: 200px;
-        font-family: Lato Regular,sans-serif;
-        font-size: 20px;
-        padding: 10px;
-        height: 30px;
-        line-height: 30px;
-    }
-
     #contact-us-form {
-        margin-top: 50px;
-        display: none;
+        margin-top: 20px;
+        display: flex;
         flex-direction: column;
-        gap: 30px;
+        gap: 20px;
         width: 500px;
+
+        #contact-us-error {
+            font-family: Lato Regular,sans-serif;
+            font-size: 20px;
+            color: white;
+            padding: 10px;
+            display: none;
+            border: 3px solid rgb(162, 42, 57);
+            background-color: rgb(213, 94, 108);
+        }
 
         #send-button {
             text-align: center;
@@ -446,8 +467,7 @@ body {
             font-family: Lato Regular,sans-serif;
             font-size: 20px;
             padding: 10px;
-            height: 30px;
-            line-height: 30px;
+            border: none;
         }
     }
 
@@ -455,6 +475,17 @@ body {
         #contact-us-form {
             width: 90%;
         }
+    }
+
+    #contact-us-success {
+        font-family: Lato Regular,sans-serif;
+        font-size: 20px;
+        color: white;
+        padding: 10px;
+        display: none;
+        background-color: rgb(180, 224, 177);
+        border: 3px solid rgb(136, 205, 133);
+        margin-top: 20px;
     }
 }
 
