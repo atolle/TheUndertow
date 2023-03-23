@@ -151,7 +151,7 @@
         if (response.ok) {
             const shows = await response.json();
 
-            if (shows) {
+            if (shows.length) {
                 showsHtml = "";
 
                 for (const show of shows) {

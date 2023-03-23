@@ -8,23 +8,23 @@ gulp.task('sass', function(){
     return gulp.src('src/scss/styles.scss')       
         .pipe(sass())       
         .pipe(cssnano())       
-        .pipe(gulp.dest('dist/css')); 
+        .pipe(gulp.dest('public/css')); 
 });
 
 gulp.task('js', function(){    
     return gulp.src('src/js/*.js')
         .pipe(uglify())              
-        .pipe(gulp.dest('dist/js')); 
+        .pipe(gulp.dest('public/js')); 
 });
 
 gulp.task('html', function(){    
     return gulp.src('src/html/*.html')
-        .pipe(gulp.dest('dist/html')); 
+        .pipe(gulp.dest('public/html')); 
 });
 
 gulp.task('images', function(){    
     return gulp.src('src/images/*')
-        .pipe(gulp.dest('dist/images')); 
+        .pipe(gulp.dest('public/images')); 
 });
 
 gulp.task('build', gulp.series('sass', 'js', 'html', 'images'));
