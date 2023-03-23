@@ -3,18 +3,21 @@
         "date": "March 17, 2023",
         "venue": "The Office",
         "location": "Foley, AL",
-        "time": "9 PM - 1 AM"
+        "time": "9 PM - 1 AM",
+        "href": "https://www.officelounge-foley.com/"
     },
     {
         "date": "March 18, 2023",
         "venue": "Doc Holliday's",
         "location": "Foley, AL",
-        "time": "9 PM - 2 AM"
+        "time": "9 PM - 2 AM",
+        "href": "https://www.dochollidaysfoley.com/"
     },
     {
         "date": "March 19, 2023",
         "venue": "The Wharf",
         "location": "Orange Beach, AL",
-        "time": "9 PM - 2 AM"
+        "time": "9 PM - 2 AM",
+        "href": "https://alwharf.com/"
     }
 ]

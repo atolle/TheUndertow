@@ -65,19 +65,13 @@
                 </div>
                 <div id="about-verbiage-container">
                     <div id="about-verbiage">
-                        We are a band and we play music. We are a band and we play music. We are a band and we play
-                        music.
-                        <br /><br /> We are a band and we play music. We are a band and we play music. We are a band and
-                        we
-                        play music. We are a band and we play music. We are a band and we play music. We are a band and
-                        we
-                        play music. <br /><br /> We are a band and we play music. We are a band and we play music. We
-                        are a
-                        band and we play music. We are a band and we play music. We are a band and we play music. We are
-                        a
-                        band and we play music. We are a band and we play music. We are a band and we play music. We are
-                        a
-                        band and we play music.
+                        THE UNDERTOW is a four-piece rock cover band, formed in 2022, and based in Gulf Shores, AL.
+                        <br /><br /> 
+                        The members all come from a mix of geographic locations, bringing with them decades of musical experience, honed in a variety of original and cover groups. Born out of a desire to play something different than the usual, THE UNDERTOW specializes in 1990's - 2000's alternative/grunge rock, with some surprises always thrown in for good measure.
+                        <br /><br />
+                        No venue too big, no venue too small, because we cover it all! Come out and see us.
+                        <br /><br />
+                        THE UNDERTOW... We'll put you in!
                     </div>
                 </div>
                 <div id="about-subheader-container">
@@ -133,41 +127,36 @@
 </html>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const contactForm = document.getElementById("contact-us-form");
-        const conactUsSuccess = document.getElementById("contact-us-success");
-        const contactUsError = document.getElementById("contact-us-error");
-        const sendButton = document.getElementById("send-button");
-        const nameField = document.getElementById("name");
-        const emailField = document.getElementById("email");
-        const messageField = document.getElementById("message");
+    const jumpToShow = (href) => {
+        window.open(href);
+    }
+
+    const fetchAndDrawShows = async () => {
         const showCardContainer = document.getElementById("show-card-container");
+        const response = await fetch("/json/shows.json", {
+            method: "GET",
+            headers: { 'Content-Type': 'application/json' }
+        });
 
-        const fetchAndDrawShows = async () => {
-            const response = await fetch("/json/shows.json", {
-                method: "GET",
-                headers: { 'Content-Type': 'application/json' }
-            });
-
-            let showsHtml = `
+        let showsHtml = `
                 <div class="show-card">
                     <div class="show-circle"></div>
                     <div class="show-date"></div>
-                    <div class="show-venue">Coming soon!</div>
+                    <div class="show-venue">More shows coming soon!</div>
                     <div class="show-location"></div>
                     <div class="show-time"></div>
                 </div>
             `
 
-            if (response.ok) {
-                const shows = await response.json();
+        if (response.ok) {
+            const shows = await response.json();
 
-                if (shows) {
-                    showsHtml = "";
+            if (shows) {
+                showsHtml = "";
 
-                    for (const show of shows) {
-                        showsHtml += `
-                            <div class="show-card">
+                for (const show of shows) {
+                    showsHtml += `
+                            <div class="show-card" onclick="jumpToShow('${show.href}')">
                                 <div class="show-circle"></div>
                                 <div class="show-date">${show.date}</div>
                                 <div class="show-venue">${show.venue}</div>
@@ -175,12 +164,21 @@
                                 <div class="show-time">${show.time}</div>
                             </div>
                         `
-                    }
                 }
             }
-
-            showCardContainer.innerHTML = showsHtml;
         }
+
+        showCardContainer.innerHTML = showsHtml;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const contactForm = document.getElementById("contact-us-form");
+        const conactUsSuccess = document.getElementById("contact-us-success");
+        const contactUsError = document.getElementById("contact-us-error");
+        const sendButton = document.getElementById("send-button");
+        const nameField = document.getElementById("name");
+        const emailField = document.getElementById("email");
+        const messageField = document.getElementById("message");        
 
         const formIsValid = () => {
             let formIsValid = true;
