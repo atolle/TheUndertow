@@ -12,6 +12,11 @@ html {
 body {
     margin: 0px;
     padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
 }
 
 .row {
@@ -44,14 +49,6 @@ body {
 .has-error::placeholder {
     color: white;
     opacity: 1;
-}
-
-#root-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(82,86,89);
 }
 
 #root {
