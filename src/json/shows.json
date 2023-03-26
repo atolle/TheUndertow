@@ -1,23 +1,16 @@
 [
     {
-        "date": "March 17, 2023",
-        "venue": "The Office",
+        "date": "April 29, 2023",
+        "venue": "Scuttlebutt Pub",
         "location": "Foley, AL",
         "time": "9 PM - 1 AM",
-        "href": "https://www.officelounge-foley.com/"
+        "href": "https://www.scuttlebuttpub.com/"
     },
     {
-        "date": "March 18, 2023",
-        "venue": "Doc Holliday's",
+        "date": "July 01, 2023",
+        "venue": "Scuttlebutt Pub",
         "location": "Foley, AL",
-        "time": "9 PM - 2 AM",
-        "href": "https://www.dochollidaysfoley.com/"
-    },
-    {
-        "date": "March 19, 2023",
-        "venue": "The Wharf",
-        "location": "Orange Beach, AL",
-        "time": "9 PM - 2 AM",
-        "href": "https://alwharf.com/"
+        "time": "9 PM - 1 AM",
+        "href": "https://www.scuttlebuttpub.com/"
     }
 ]
