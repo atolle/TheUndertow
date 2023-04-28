@@ -181,6 +181,7 @@ body {
             gap: 15px;
             background-image: linear-gradient(white 70%, lightgray);
             max-width: 250px;
+            min-width: 250px;
             flex: 0 21%;
             letter-spacing: 3px;
             cursor: pointer;
@@ -228,6 +229,7 @@ body {
         height: 0;
         display: flex;
         justify-content: center;
+        margin-bottom: 25px;
     
         iframe {
             position: absolute;
