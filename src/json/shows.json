@@ -1,23 +1,74 @@
 [
     {
-        "date": "April 21, 2023",
-        "venue": "The Office",
-        "location": "Foley, AL",
-        "time": "9 PM - 1 AM",
-        "href": "https://www.officelounge-foley.com/"
-    },
-    {
-        "date": "April 29, 2023",
-        "venue": "Scuttlebutt Pub",
-        "location": "Foley, AL",
-        "time": "9 PM - 1 AM",
-        "href": "https://www.scuttlebuttpub.com/"
-    },
-    {
         "date": "July 01, 2023",
         "venue": "Scuttlebutt Pub",
         "location": "Foley, AL",
         "time": "9 PM - 1 AM",
+        "start": "7/1/2023 9:00 PM",
+        "end": "7/1/2023 1:00 AM",
         "href": "https://www.scuttlebuttpub.com/"
-    }
+    },
+    {
+        "date": "July 14, 2023",
+        "venue": "Doc Holliday's",
+        "location": "Foley, AL",
+        "time": "9 PM - 1 AM",
+        "start": "7/14/2023 9:00 PM",
+        "end": "7/14/2023 1:00 AM",
+        "href": "https://www.dochollidaysfoley.com/"
+    },
+    {
+        "date": "July 17, 2023",
+        "venue": "Sandshaker Lounge",
+        "location": "Orange Beach, AL",
+        "time": "8 PM - 11 PM",
+        "start": "7/17/2023 8:00 PM",
+        "end": "7/17/2023 11:00 PM",
+        "href": "https://www.sandshaker.com/Orange-Beach"
+    },
+    {
+        "date": "July 21, 2023",
+        "venue": "Good Time Charlie's",
+        "location": "Foley, AL",
+        "time": "8 PM - 12 AM",
+        "start": "7/21/2023 8:00 PM",
+        "end": "7/21/2023 12:00 AM",
+        "href": "https://goodtimecharleys.business.site/"
+    },
+    {
+        "date": "August 05, 2023",
+        "venue": "Doc Holliday's",
+        "location": "Foley, AL",
+        "time": "9 PM - 1 AM",
+        "start": "8/5/2023 9:00 PM",
+        "end": "8/5/2023 1:00 AM",
+        "href": "https://www.dochollidaysfoley.com/"
+    },
+    {
+        "date": "September 08, 2023",
+        "venue": "Doc Holliday's",
+        "location": "Foley, AL",
+        "time": "9 PM - 1 AM",
+        "start": "9/8/2023 9:00 PM",
+        "end": "9/8/2023 1:00 AM",
+        "href": "https://www.dochollidaysfoley.com/"
+    },
+    {
+        "date": "October 06, 2023",
+        "venue": "Doc Holliday's",
+        "location": "Foley, AL",
+        "time": "9 PM - 1 AM",
+        "start": "10/6/2023 9:00 PM",
+        "end": "10/6/2023 1:00 AM",
+        "href": "https://www.dochollidaysfoley.com/"
+    },
+    {
+        "date": "October 13, 2023",
+        "venue": "Shrimp Fest (West Stage)",
+        "location": "Gulf Shores, AL",
+        "time": "2 PM - 3:30 PM",
+        "start": "10/13/2023 2:00 PM",
+        "end": "10/13/2023 3:30 PM",
+        "href": "http://www.myshrimpfest.com/"
+    }    
 ]

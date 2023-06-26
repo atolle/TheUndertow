@@ -15,6 +15,9 @@
     <meta property="og:image:height" content="627" />
     <link rel="shortcut icon" href="images/favicon.ico" />
     <title>The Undertow</title>
+    <script type="application/javascript" src="js/ics.min.js"></script>
+    <script type="application/javascript" src="js/ics.deps.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
 <body>
@@ -58,6 +61,12 @@
             <div class="header-center">
                 <div>OUR MUSIC</div>
             </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/6eueqwIUHo8" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>            
             <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/wMxuoed2oG0" title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -111,13 +120,13 @@
                     Mike - Drums
                     <br />
                     <br />
-                    Andrew - Bass
+                    Andrew - Bass & vocals
                     <br />
                     <br />
                     Pete - Guitar & vocals
                     <br />
                     <br />
-                    Bryan - Guitar & vocals
+                    Bryan - Guitar & lead vocals
                 </div>
             </div>
         </div>
@@ -154,6 +163,15 @@
         window.open(href);
     }
 
+    const downloadShowIcs = (event, venue, href, location, start, end) => {
+        event.stopPropagation();
+        const uid = Date.now();
+        const cal = ics(uid);
+
+        cal.addEvent(`The Undertow at ${unescape(venue)}`, href, location, start, end);
+        cal.download(`the-undertow-${uid}`);
+    }
+
     const fetchAndDrawShows = async () => {
         const showCardContainer = document.getElementById("show-card-container");
         const response = await fetch("/json/shows.json", {
@@ -184,8 +202,13 @@
                                 <div class="show-circle"></div>
                                 <div class="show-date">${show.date}</div>
                                 <div class="show-venue">${show.venue}</div>
-                                <div class="show-location">${show.location}</div>
-                                <div class="show-time">${show.time}</div>
+                                <div style="display: flex; justify-content: space-between; margin-top: auto; align-items: center">
+                                    <div>
+                                        <div class="show-location">${show.location}</div>
+                                        <div class="show-time">${show.time}</div>
+                                    </div>
+                                    <i onclick="downloadShowIcs(event, '${escape(show.venue)}', '${show.href}', '${show.location}', '${show.start}', '${show.end}')" class="fa-regular fa-calendar"></i>
+                                </div>
                             </div>
                         `
                 }
