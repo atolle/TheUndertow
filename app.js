@@ -29,7 +29,7 @@ app.post('/contact', jsonParse, (req, res) => {
 		service: 'gmail',
 		auth: {
 			user: 'theundertowmailer@gmail.com',
-			pass: 'fbeskbzbnczomjqx'
+			pass: ''
 		}
 	});
 
