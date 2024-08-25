@@ -54,33 +54,34 @@
                     <img class="social-logo" src="images/youtube.png" />
                 </a>
             </div>
+            <div id="calendar-help">CLICK <i class="fa-regular fa-calendar"></i> TO ADD A SHOW TO YOUR CALENDAR</div>
             <div id="show-card-container">
             </div>
         </div>
         <div class="row" id="media">
             <div class="header-center">
                 <div>OUR MUSIC</div>
+            </div>            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/L8HHcvwerrk" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/qLCttCfFIB0" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/FlxsTZtLCEA" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
             </div>
             <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/6eueqwIUHo8" title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
-            </div>            
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/wMxuoed2oG0" title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
-            </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/p6LnKV09WIs" title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
-            </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/mAyy9mNFQb4" title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen>
                 </iframe>
@@ -197,12 +198,14 @@
                 showsHtml = "";
 
                 for (const show of shows) {
+                    if (show.date > Date.now())
+
                     showsHtml += `
                             <div class="show-card" onclick="jumpToShow('${show.href}')">
                                 <div class="show-circle"></div>
                                 <div class="show-date">${show.date}</div>
                                 <div class="show-venue">${show.venue}</div>
-                                <div style="display: flex; justify-content: space-between; margin-top: auto; align-items: center">
+                                <div class="show-footer">
                                     <div>
                                         <div class="show-location">${show.location}</div>
                                         <div class="show-time">${show.time}</div>

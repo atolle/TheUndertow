@@ -163,6 +163,12 @@ body {
         }
     }
 
+    #calendar-help {
+        padding-top: 30px;
+        font-size: 25px;
+        text-align: center;
+    }
+
     #show-card-container {
         display: flex;
         flex-wrap: wrap;
@@ -208,6 +214,13 @@ body {
             .show-time {
                 font-size: 25px;
                 color: rgb(75, 75, 75);
+            }
+
+            .show-footer {
+                display: flex; 
+                justify-content: space-between; 
+                margin-top: auto; 
+                align-items: center;
             }
         }
     }
